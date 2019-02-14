@@ -1,6 +1,7 @@
-// Dependencies
+//Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
+const passport = require('passport');
 
 const search = require('./routes/api/search');
 const users = require('./routes/api/users');
@@ -9,16 +10,24 @@ const posts = require('./routes/api/posts');
 
 const app = express();
 
+// Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // DB Config
 const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db, { useNewUrlParser: true })
+  .connect(db)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
-app.get('/', (req, res) => res.send('x'));
+// Passport Middleware
+app.use(passport.initialize());
+
+// Passport Config
+require('./config/passport.js')(passport);
 
 // Use Routes
 app.use('/api/search', search);
