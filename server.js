@@ -11,18 +11,14 @@ const posts = require('./routes/api/posts');
 
 const app = express();
 
+const port = process.env.PORT || 2187;
+
 // Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DB Config
 const db = require('./config/keys').mongoURI;
-
-// Connect to MongoDB
-mongoose
-  .connect(db)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
 
 // Passport Middleware
 app.use(passport.initialize());
@@ -36,7 +32,6 @@ app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
 
-/*
 // Serve Static Assets if in Production
 if (process.env.NODE_ENV === 'production') {
   // Set Static Folder
@@ -46,9 +41,12 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
-*/
 
-const port = process.env.PORT || 2187;
+// Connect to MongoDB
+mongoose
+  .connect(db)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
 app.listen(port, () =>
   console.log(`Vegetabelly server running on port ${port}`)
