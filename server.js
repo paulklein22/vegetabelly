@@ -11,7 +11,7 @@ const posts = require('./routes/api/posts');
 
 const app = express();
 
-const port = process.env.PORT || 2187;
+const PORT = process.env.PORT || 2187;
 
 // Body Parser Middleware
 app.use(express.json());
@@ -37,6 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   // Set Static Folder
   app.use(express.static('client/build'));
 
+  // req is grayed out ///////////////////////////////////////////////////////////////////////////////////////////////////
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
@@ -48,6 +49,6 @@ mongoose
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
-app.listen(port, () =>
-  console.log(`Vegetabelly server running on port ${port}`)
+app.listen(PORT, () =>
+  console.log(`Vegetabelly server running on port ${PORT}`)
 );
