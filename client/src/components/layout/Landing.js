@@ -5,6 +5,13 @@ class Landing extends Component {
   render() {
     return (
       <div className="container">
+        <div className="title">
+          <div className="row">
+            <div className="col-md-8 m-auto">
+              <h1 className="display-4 text-center my-3">Vegetabelly</h1>
+            </div>
+          </div>
+        </div>
         <div className="row">
           <div className="col">
             <div className="feedback alert alert-danger text-center">
@@ -25,26 +32,20 @@ class Landing extends Component {
                   id="searchCity"
                   placeholder="Enter City"
                 />
-                <div className="input-group-append">
-                  <button type="submit" className="btn redBtn">
-                    Search
-                  </button>
-                </div>
+                <input type="submit" class="btn btn-success btn-block mt-3" />
               </div>
             </form>
 
             <img src="img/loader.gif" className="loader" alt="" />
           </div>
         </div>
+
+        <section className="py-5">
+          <div className="container">
+            <div className="row" id="restaurant-list" />
+          </div>
+        </section>
       </div>
-
-      // <section className="py-5">
-      //   <div className="container">
-      //     <div className="row" id="restaurant-list">
-
-      //     </div>
-      //   </div>
-      // </section>
     );
   }
 }
