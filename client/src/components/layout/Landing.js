@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../../img/logo.jpg';
 // import { Link } from 'react-router-dom';
 
 class Landing extends Component {
@@ -9,6 +10,7 @@ class Landing extends Component {
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center my-3">Vegetabelly</h1>
+              <img src={logo} alt="Logo" class="img-fluid" />
             </div>
           </div>
         </div>
