@@ -17,6 +17,7 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+
         <div className="row">
           <div className="col">
             <div className="feedback alert alert-danger text-center">
