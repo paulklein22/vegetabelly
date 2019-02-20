@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from '../../img/logo.png';
 // import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
 class Landing extends Component {
   render() {
@@ -12,7 +14,7 @@ class Landing extends Component {
               <img
                 src={logo}
                 alt="Logo"
-                class="logo img-fluid d-block mx-auto"
+                className="logo img-fluid d-block mx-auto"
               />
             </div>
           </div>
@@ -38,7 +40,10 @@ class Landing extends Component {
                   id="searchCity"
                   placeholder="Enter City"
                 />
-                <input type="submit" class="btn search-button btn-block mt-3" />
+                <input
+                  type="submit"
+                  className="btn search-button btn-block mt-3"
+                />
               </div>
             </form>
 
@@ -56,4 +61,12 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Landing);
