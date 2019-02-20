@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../../img/logo.jpg';
+import logo from '../../img/logo.png';
 // import { Link } from 'react-router-dom';
 
 class Landing extends Component {
@@ -9,8 +9,11 @@ class Landing extends Component {
         <div className="title">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h1 className="display-4 text-center my-3">Vegetabelly</h1>
-              <img src={logo} alt="Logo" class="img-fluid" />
+              <img
+                src={logo}
+                alt="Logo"
+                class="logo img-fluid d-block mx-auto"
+              />
             </div>
           </div>
         </div>
@@ -34,7 +37,7 @@ class Landing extends Component {
                   id="searchCity"
                   placeholder="Enter City"
                 />
-                <input type="submit" class="btn btn-success btn-block mt-3" />
+                <input type="submit" class="btn search-button btn-block mt-3" />
               </div>
             </form>
 
