@@ -11,11 +11,19 @@ body {
   background: #d400aa;
 }
 
+.navbar-brand {
+  color: #fff;
+}
+
 .footer {
-  background: #d400aa;
+  background: #343a40;
 }
 
 .search-button {
   background: #ff7f2a;
   color: #000;
+}
+
+.nav-link {
+  color: #fff;
 }

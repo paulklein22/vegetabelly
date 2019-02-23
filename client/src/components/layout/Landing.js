@@ -5,6 +5,20 @@ import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 
 class Landing extends Component {
+  state = {
+    categories: undefined,
+    cityID: undefined,
+    restaurants: undefined,
+    img: undefined,
+    name: undefined,
+    address: undefined,
+    aggregate_rating: undefined,
+    cuisines: undefined,
+    cost: undefined,
+    menu_url: undefined,
+    url: undefined
+  };
+
   render() {
     return (
       <div className="container">
@@ -20,7 +34,7 @@ class Landing extends Component {
           </div>
         </div>
 
-        <div className="row">
+        <div className="form-row">
           <div className="col">
             <div className="feedback alert alert-danger text-center">
               Please enter a city

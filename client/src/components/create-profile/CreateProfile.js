@@ -16,7 +16,7 @@ class CreateProfile extends Component {
       handle: '',
       website: '',
       location: '',
-      vegType: '',
+      status: '',
       bio: '',
       twitter: '',
       facebook: '',
@@ -25,8 +25,8 @@ class CreateProfile extends Component {
       errors: {}
     };
 
-    this.onSubmit = this.onSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -40,7 +40,7 @@ class CreateProfile extends Component {
 
     const profileData = {
       handle: this.state.handle,
-      vegType: this.state.vegType,
+      status: this.state.status,
       location: this.state.location,
       website: this.state.website,
       bio: this.state.bio,
@@ -136,11 +136,11 @@ class CreateProfile extends Component {
                 />
                 <SelectListGroup
                   placeholder="Vegetarian Type"
-                  name="vegetarian type"
-                  value={this.state.vegType}
+                  name="status"
+                  value={this.state.status}
                   onChange={this.onChange}
                   options={options}
-                  error={errors.vegType}
+                  error={errors.status}
                   info="Let us know what type of vegetarian you are"
                 />
                 <TextFieldGroup

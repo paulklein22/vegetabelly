@@ -18,7 +18,7 @@ const ProfileSchema = new Schema({
   location: {
     type: String
   },
-  vegType: {
+  status: {
     type: String,
     required: true
   },
