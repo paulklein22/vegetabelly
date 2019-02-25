@@ -27,3 +27,7 @@ body {
 .nav-link {
   color: #fff;
 }
+
+.card-header {
+  background: #ff7f2a;
+}
