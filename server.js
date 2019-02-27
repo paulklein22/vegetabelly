@@ -33,7 +33,7 @@ app.use(passport.initialize());
 require('./config/passport.js')(passport);
 
 // Use Routes
-app.use('/api/search', search);
+// app.use('/api/search', search);
 app.use('/api/users', users);
 app.use('/api/profile', profile);
 app.use('/api/posts', posts);
