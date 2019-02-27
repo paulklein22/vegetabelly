@@ -17,6 +17,9 @@ body {
 
 .footer {
   background: #343a40;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 .search-button {

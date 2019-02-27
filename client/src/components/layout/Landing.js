@@ -3,6 +3,7 @@ import logo from '../../img/logo.png';
 // import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
+import SearchZomato from '../search/SearchZomato';
 
 class Landing extends Component {
   state = {
@@ -36,34 +37,11 @@ class Landing extends Component {
 
         <div className="form-row">
           <div className="col">
-            <div className="feedback alert alert-danger text-center">
-              Please enter a city
-            </div>
-            <form id="searchForm" className="my-4">
-              <div className="form-group my-3">
-                <select
-                  className="custom-select text-capitalize"
-                  id="searchCategory"
-                />
-              </div>
-
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control text-capitalize"
-                  id="searchCity"
-                  placeholder="Enter City"
-                />
-                <input
-                  type="submit"
-                  className="btn search-button btn-block mt-3"
-                />
-              </div>
-            </form>
-
             <img src="img/loader.gif" className="loader" alt="" />
           </div>
         </div>
+
+        <SearchZomato />
 
         <section className="py-5">
           <div className="container">

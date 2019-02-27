@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class ProfileGithub extends Component {
-  constructer(props) {
+  constructor(props) {
     super(props);
     this.state = {
       clientId: '',
@@ -32,7 +32,6 @@ class ProfileGithub extends Component {
 
   render() {
     const { repos } = this.state;
-
     const repoItems = repos.map(repo => (
       <div key={repo.id} className="card card-body mb-2">
         <div className="row">
