@@ -19,6 +19,9 @@ class Landing extends Component {
               <h4 className="text-center text-muted mt-3">
                 Search for local vegetarian-friendly restaurants
               </h4>
+              <h4 className="text-center text-muted mt-3">
+                Join Vegetabelly to connect with other like-minded eaters
+              </h4>
             </div>
           </div>
         </div>

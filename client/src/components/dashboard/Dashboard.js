@@ -28,10 +28,10 @@ class Dashboard extends Component {
       if (Object.keys(profile).length > 0) {
         dashboardContent = (
           <div>
-            <p className="lead text-muted">
+            <h5 className="lead text-muted mb-3">
               Welcome,{' '}
               <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
-            </p>
+            </h5>
             <ProfileActions />
             <div style={{ marginBottom: '60px' }} />
             <button

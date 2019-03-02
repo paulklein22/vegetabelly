@@ -75,6 +75,11 @@ body {
   color: #000;
 }
 
+.edit-profile-button {
+  background: #aad400;
+  color: #000;
+}
+
 .profile-header-card {
   background: #2a7fff;
 }
