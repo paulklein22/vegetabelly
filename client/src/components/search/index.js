@@ -13,7 +13,7 @@ export function SearchBtn(props) {
     <button
       {...props}
       style={{ float: 'left', marginBottom: 9 }}
-      className="btn btn-success"
+      className="btn landing-search-button"
     >
       {props.children}
     </button>

@@ -17,16 +17,17 @@ class CommentItem extends Component {
           <div className="col-md-2">
             <a href="profile.html">
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle chat-profile img-fluid"
                 src={comment.avatar}
                 alt="User Avatar"
               />
             </a>
             <br />
-            <p className="text-center">{comment.name}</p>
           </div>
           <div className="col-md-10">
-            <p className="lead">{comment.text}</p>
+            <p className="lead text-underline">{comment.name} says:</p>
+            <hr />
+            <p className="lead mb-5">{comment.text}</p>
             {comment.user === auth.user.id ? (
               <button
                 onClick={this.onDeleteClick.bind(this, postId, comment._id)}

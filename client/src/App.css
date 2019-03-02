@@ -1,5 +1,7 @@
 body {
   background: #ededed;
+  font-family: 'Cabin', sans-serif;
+  padding-bottom: 120px;
 }
 
 .logo {
@@ -31,6 +33,53 @@ body {
   color: #fff;
 }
 
+.restaurant-card-list {
+  background: #aad400;
+}
+
+.landing-search-button {
+  background: #d400aa;
+  color: #fff;
+}
+
+.card-border {
+  border: 1px solid #d400aa;
+}
+
 .card-header {
-  background: #ff7f2a;
+  background: #aad400;
+  color: #000;
+}
+
+.post-submit {
+  background: #aad400;
+  color: #000;
+}
+
+.comment-submit {
+  background: #d400aa;
+  color: #fff;
+}
+
+.chat-profile {
+  align-items: center;
+}
+
+.comment-button {
+  background: #aad400;
+  color: #000;
+}
+
+.profile-button {
+  background: #aad400;
+  color: #000;
+}
+
+.profile-header-card {
+  background: #2a7fff;
+}
+
+/* Temparory alignment -- need to make mobile responsive */
+.profile-header-avatar {
+  margin-left: 433px;
 }

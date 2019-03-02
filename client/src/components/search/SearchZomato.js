@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import placeholder from '../../img/placeholder_image.jpg';
 import { SearchInput, SearchBtn } from './index';
 
 class SearchZomato extends Component {
@@ -47,11 +47,11 @@ class SearchZomato extends Component {
         .then(res => res.json())
         .then(res => {
           this.setState({ restaurants: res.restaurants });
-          console.log('this is res', res);
+          console.log(res);
         })
         .catch(err => console.log(err));
     } else {
-      console.log('error');
+      return null;
     }
   }
 
@@ -74,69 +74,66 @@ class SearchZomato extends Component {
 
   render() {
     const { restaurants } = this.state;
-    console.log('this is state', this.state);
-    // console.log(restaurants);
-    // restaurants.forEach(index =>
-    //   console.log(' this is name', index.restaurant.id)
-    // );
+
     const restaurantCards = restaurants.map(index => (
       <div
         key={index.restaurant.id}
-        className="card col-11 mx-auto my-3 col-md-4"
+        className="card card-border col-12 col-lg-4 col-md-6 mb-3"
       >
         <div className="card">
-          <div className="row p-1">
-            <div className="col-5">
+          <div className="row">
+            <div className="col-6">
               <img
-                // Try:
-                // src={index.restaurant.thumb || index.restaurant.photos_url}
-                src={index.restaurant.thumb}
-                className="img-fluid img-thumbnail"
-                alt="Restaurant"
+                src={
+                  index.restaurant.thumb === ''
+                    ? placeholder
+                    : index.restaurant.thumb
+                }
+                className="card-img-top img-fluid img-thumbnail mt-2 ml-2"
+                alt="Restaurant Food"
               />
             </div>
-            <div className="col-5 text-capitalize">
-              <h5 className="name text-uppercase pt-2 redText">
-                {index.restaurant.name}
+            <div className="col-6 card-body">
+              <h5 className="card-title text-center text-uppercase lead">
+                <strong>{index.restaurant.name}</strong>
               </h5>
-              <h6>{index.restaurant.location.address}</h6>
             </div>
-            <div className="col-1">
-              <div className="badge badge-success">
-                {index.restaurant.user_rating.aggregate_rating} / 5
-              </div>
-            </div>
-          </div>
-          <hr />
-          <div className="row py-3 ml-1">
-            <div className="col-5 text-uppercase ">
-              <h6>Cuisines:</h6>
-              <h6>Cost for two:</h6>
-            </div>
-            <div className="col-7 text-uppercase">
-              <h6>{index.restaurant.cuisines}</h6>
-              <h6>${index.restaurant.average_cost_for_two}</h6>
+            <div className="card-body">
+              <p className="card-text text-center text-capitalize">
+                {index.restaurant.location.address}
+              </p>
             </div>
           </div>
-          <hr />
-          <div className="row text-center no-gutters pb-3">
-            <div className="col-6">
-              <Link
-                to={index.restaurant.menu_url}
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item text-uppercase restaurant-card-list">
+              {index.restaurant.cuisines}
+            </li>
+            <li className="list-group-item text-uppercase restaurant-card-list">
+              Cost for Two: ${index.restaurant.average_cost_for_two}
+            </li>
+            <li className="list-group-item restaurant-card-list">
+              USER RATING: {index.restaurant.user_rating.aggregate_rating} / 5 (
+              {index.restaurant.user_rating.votes} reviews)
+            </li>
+          </ul>
+          <div className="row">
+            <div className="col-6 card-body text-center">
+              <a
+                href={index.restaurant.menu_url}
                 target="_blank"
                 className="btn redBtn"
               >
-                <i className="fas fa-book" /> Menu
-              </Link>
+                <i className="fas fa-book-open" /> Menu
+              </a>
             </div>
-            <div className="col-6">
-              <Link
-                to={index.restaurant.url}
+            <div className="col-6 card-body text-center">
+              <a
+                href={index.restaurant.url}
                 target="_blank"
                 className="btn redBtn"
               >
-                <i className="fas fa-book" /> Website
-              </Link>
+                <i className="fas fa-globe" /> Website
+              </a>
             </div>
           </div>
         </div>
@@ -145,21 +142,37 @@ class SearchZomato extends Component {
 
     return (
       <div>
-        <form>
-          <SearchInput
-            value={this.state.city}
-            onChange={this.handleInputChange}
-            // Remove if not needed
-            id="searchCity"
-            name="city"
-            placeholder="Enter City"
-          />
-        </form>
-        <SearchBtn disabled={!this.state.city} onClick={this.handleFormSubmit}>
-          Search
-        </SearchBtn>
-        <hr />
-        {restaurantCards}
+        <div className="container">
+          <div className="form-row mt-4">
+            <div className="col-2" />
+            <div className="col-7">
+              <form>
+                <SearchInput
+                  value={this.state.city}
+                  onChange={this.handleInputChange}
+                  id="searchCity"
+                  name="city"
+                  placeholder="Enter city & state (e.g., Chicago, IL)"
+                />
+              </form>
+            </div>
+            <div className="col-1">
+              <SearchBtn
+                disabled={!this.state.city}
+                onClick={this.handleFormSubmit}
+              >
+                Search
+              </SearchBtn>
+            </div>
+            <div className="col-2" />
+            <hr />
+          </div>
+        </div>
+        <div className="container py-5 px-2">
+          <div className="row" id="restaurant-list">
+            {restaurantCards}
+          </div>
+        </div>
       </div>
     );
   }

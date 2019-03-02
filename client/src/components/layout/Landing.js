@@ -1,25 +1,10 @@
 import React, { Component } from 'react';
 import logo from '../../img/logo.png';
-// import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import SearchZomato from '../search/SearchZomato';
 
 class Landing extends Component {
-  state = {
-    categories: undefined,
-    cityID: undefined,
-    restaurants: undefined,
-    img: undefined,
-    name: undefined,
-    address: undefined,
-    aggregate_rating: undefined,
-    cuisines: undefined,
-    cost: undefined,
-    menu_url: undefined,
-    url: undefined
-  };
-
   render() {
     return (
       <div className="container">
@@ -28,16 +13,13 @@ class Landing extends Component {
             <div className="col-md-8 m-auto">
               <img
                 src={logo}
-                alt="Logo"
+                alt="Vegetabelly Logo"
                 className="logo img-fluid d-block mx-auto"
               />
+              <h4 className="text-center text-muted mt-3">
+                Search for local vegetarian-friendly restaurants
+              </h4>
             </div>
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="col">
-            <img src="img/loader.gif" className="loader" alt="" />
           </div>
         </div>
 

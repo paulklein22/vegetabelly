@@ -8,9 +8,9 @@ class ProfileHeader extends Component {
     return (
       <div className="row">
         <div className="col-md-12">
-          <div className="card card-body bg-info text-white mb-3">
+          <div className="card card-body profile-header-card text-white mb-3">
             <div className="row">
-              <div className="col-4 col-md-3 m-auto">
+              <div className="col-4 col-md-3 profile-header-avatar">
                 <img
                   className="rounded-circle"
                   src={profile.user.avatar}

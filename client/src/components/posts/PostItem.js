@@ -33,19 +33,20 @@ class PostItem extends Component {
     return (
       <div className="card card-body mb-3">
         <div className="row">
-          <div className="col-md-2">
+          <div className="col-md-3">
             <a href="profile.html">
               <img
-                className="rounded-circle d-none d-md-block"
+                className="rounded-circle chat-profile img-fluid"
                 src={post.avatar}
-                alt=""
+                alt="User Avatar"
               />
             </a>
             <br />
-            <p className="text-center">{post.name}</p>
           </div>
-          <div className="col-md-10">
-            <p className="lead">{post.text}</p>
+          <div className="col-md-9">
+            <p className="lead text-underline">{post.name} says:</p>
+            <hr />
+            <p className="lead mb-5">{post.text}</p>
             {showActions ? (
               <span>
                 <button
@@ -67,7 +68,10 @@ class PostItem extends Component {
                 >
                   <i className="text-secondary fas fa-thumbs-down" />
                 </button>
-                <Link to={`/post/${post._id}`} className="btn btn-info mr-1">
+                <Link
+                  to={`/post/${post._id}`}
+                  className="btn comment-submit mr-1"
+                >
                   Comments
                 </Link>
                 {post.user === auth.user.id ? (

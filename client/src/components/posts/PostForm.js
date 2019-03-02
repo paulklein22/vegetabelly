@@ -49,7 +49,7 @@ class PostForm extends Component {
     return (
       <div className="post-form mb-3">
         <div className="card card-info">
-          <div className="card-header text-white">Say Something...</div>
+          <div className="card-header">Say Something...</div>
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
@@ -61,7 +61,7 @@ class PostForm extends Component {
                   error={errors.text}
                 />
               </div>
-              <button className="btn btn-dark" type="submit">
+              <button className="btn post-submit" type="submit">
                 Submit
               </button>
             </form>
