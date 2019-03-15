@@ -16,7 +16,7 @@ class Landing extends Component {
                 alt="Vegetabelly Logo"
                 className="logo img-fluid d-block mx-auto"
               />
-              <h4 className="text-center text-muted mt-3">
+              <h4 className="text-center text-muted mt-4">
                 Search for local vegetarian-friendly restaurants
               </h4>
               <h4 className="text-center text-muted mt-3">

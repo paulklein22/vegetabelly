@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import placeholder from '../../img/placeholder_image.jpg';
+import InfiniteScroll from 'react-infinite-scroll-component';
 import { SearchInput, SearchBtn } from './index';
 
 class SearchZomato extends Component {
@@ -7,7 +8,9 @@ class SearchZomato extends Component {
     super(props);
     this.state = {
       city: '',
-      restaurants: []
+      restaurants: [],
+      count: 20,
+      start: 1
     };
   }
 
@@ -16,6 +19,9 @@ class SearchZomato extends Component {
   }
 
   async loadRestaurants(city) {
+    const { count, start } = this.state;
+    this.setState({ start: this.state.start + count });
+
     const apiKey = '850c0fa27d266b4e758f5337143ba64f';
     const headers = {
       Accept: 'application/json',
@@ -38,7 +44,7 @@ class SearchZomato extends Component {
     if (cityLocation.length > 0) {
       cityID = await cityLocation[0].id;
       fetch(
-        `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&sort=rating&cuisines=308`,
+        `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&start=${start}&count=${count}&sort=rating&cuisines=308`,
         {
           method: 'GET',
           headers
@@ -46,7 +52,9 @@ class SearchZomato extends Component {
       )
         .then(res => res.json())
         .then(res => {
-          this.setState({ restaurants: res.restaurants });
+          this.setState({
+            restaurants: this.state.restaurants.concat(res.restaurants)
+          });
           console.log(res);
         })
         .catch(err => console.log(err));
