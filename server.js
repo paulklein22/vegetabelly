@@ -30,11 +30,12 @@ app.use(passport.initialize());
 // Passport Config
 require('./config/passport.js')(passport);
 
-// Use Routes
-// app.use('/api/search', search);
-app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+// Define Routes // Y but check is search route is needed
+app.use('/api/search', require('./routes/api/search'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/profile', require('./routes/api/profile'));
+app.use('/api/posts', require('./routes/api/posts'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 // Serve Static Assets if in Production
 if (process.env.NODE_ENV === 'production') {
