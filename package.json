@@ -19,16 +19,19 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "concurrently": "^4.1.0",
+    "config": "^3.1.0",
     "express": "^4.16.4",
+    "express-validator": "^5.3.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.4.11",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "request": "^2.88.0",
     "validator": "^10.11.0"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "nodemon": "^1.18.10"
   }
 }

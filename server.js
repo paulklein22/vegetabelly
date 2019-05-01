@@ -1,5 +1,6 @@
 //Dependencies
-const express = require('express');
+const express = require('express'); // Y
+const connectDB = require('./config/db'); // Y
 const mongoose = require('mongoose');
 const passport = require('passport');
 // const path = require('path');
@@ -11,7 +12,10 @@ const posts = require('./routes/api/posts');
 
 const app = express();
 
-const PORT = process.env.PORT || 2187;
+// Connect Database
+connectDB(); // Y
+
+const PORT = process.env.PORT || 2187; // Y
 
 // Body Parser Middleware
 app.use(express.json());
@@ -21,10 +25,10 @@ app.use(express.urlencoded({ extended: true }));
 const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
-mongoose
-  .connect(db)
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log(err));
+// mongoose
+//   .connect(db)
+//   .then(() => console.log('MongoDB connected'))
+//   .catch(err => console.log(err));
 
 // Passport Middleware
 app.use(passport.initialize());
@@ -50,4 +54,4 @@ if (process.env.NODE_ENV === 'production') {
 
 app.listen(PORT, () =>
   console.log(`Vegetabelly server running on port ${PORT}`)
-);
+); // Y
