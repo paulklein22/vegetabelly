@@ -24,12 +24,6 @@ app.use(express.urlencoded({ extended: true }));
 // DB Config
 const db = require('./config/keys').mongoURI;
 
-// Connect to MongoDB
-// mongoose
-//   .connect(db)
-//   .then(() => console.log('MongoDB connected'))
-//   .catch(err => console.log(err));
-
 // Passport Middleware
 app.use(passport.initialize());
 
