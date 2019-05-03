@@ -18,8 +18,8 @@ connectDB(); // Y
 const PORT = process.env.PORT || 2187; // Y
 
 // Body Parser Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ extended: false }));
+// app.use(express.urlencoded({ extended: true }));
 
 // DB Config
 const db = require('./config/keys').mongoURI;
